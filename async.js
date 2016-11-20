@@ -36,3 +36,18 @@ async function grumpyLogger(greeter) {
 // Both of these statements also log 'Hello World!'
 grumpyLogger(evilHelloWorld1);
 grumpyLogger(evilHelloWorld2);
+
+function timedPromise({time, result}) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(result), time);
+  });
+}
+
+async function paraLogger(tasks) {
+  const results = await Promise.all(tasks.map(timedPromise));
+
+  console.log(results);
+}
+
+// // Logs [1, 2, 3]
+paraLogger([{time: 1000, result: 1}, {time: 500, result: 2}, {time: 750, result: 3}]);

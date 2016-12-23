@@ -49,5 +49,5 @@ async function paraLogger(tasks) {
   console.log(results);
 }
 
-// // Logs [1, 2, 3]
+// Logs [1, 2, 3]
 paraLogger([{time: 1000, result: 1}, {time: 500, result: 2}, {time: 750, result: 3}]);
